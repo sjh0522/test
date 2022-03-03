@@ -1,0 +1,12 @@
+---
+- name: Ansible_debug_conf
+  hosts: localhost
+  gather_facts: no
+  
+  tasks:
+    - name: stdout_callback change
+      replace:
+        dest: /etc/ansible/ansible.cfg
+        regexp: '#stdout_callback = skippy'
+        replace: 'stdout_callback = debug'
+        backup: yes
